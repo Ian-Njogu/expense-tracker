@@ -1,0 +1,13 @@
+th,td {
+    text-align: left;
+    border: 1px solid black;
+}
+th {
+    color: aliceblue;
+}
+.delete-btn {
+    background-color: red;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+}

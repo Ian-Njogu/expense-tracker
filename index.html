@@ -4,30 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Expense tracker</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <h1>Expense Tracker</h1>
-    <div class="input-selection">
-        <label for="category-select">Category:</label>
-        <select name="" id="category-select">
+<body class=" justify-center items-center">
+    <h1 class="items-center justify-center flex text-3xl font-semibold mb-5">Expense Tracker</h1>
+    <div class="input-selection mb-5 text-2xl justify-between items-center" >
+        <label class="font-bold" for="category-select">Category:</label>
+        <select class="cursor-pointer border-2 border-black rounded-lg" id="category-select">
             <option value="Food and beverage">Food & Beverage</option>
             <option value="Rent">Rent</option>
             <option value="Transport">Transport</option>
             <option value="Relaxing">Relaxing</option>
         </select>
-        <label for="amount-input">Amount:</label>
-        <input type="number" name="" id="amount-input">
-        <label for="date-input">Date:</label>
-        <input type="date" name="" id="date-input">
-        <button id="add-btn">Add</button>
+        <label class="ml-10 font-bold" for="amount-input">Amount:</label>
+        <input class="border-black border-2" placeholder="Enter amount(ksh)" type="number" name="" id="amount-input">
+        <label class="ml-10 font-bold" for="date-input">Date:</label>
+        <input class="cursor-pointer" type="date" name="" id="date-input">
+        <button class="ml-[250px] border-2 border-black rounded-lg p-2 bg-green-500 hover:bg-green-600" id="add-btn">Add</button>
 
     </div>
     <div class="expenses-list">
-        <h2>Expenses list</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>Category</th>
+        <h2 class="text-center text-2xl font-bold">Expenses list</h2>
+        <table class="border-collapse w-[100%]">
+            <thead class="border-2 border-black">
+                <tr class="bg-green-500 ">
+                    <th class="m-50">Category</th>
                     <th>Amount</th>
                     <th>Date</th>
                     <th>Delete</th>
@@ -38,7 +40,7 @@
             </tbody>
             <tfoot>
                 <tr>
-                    <td>Total:</td>
+                    <td class="font-bold">Total:</td>
                     <td id="total-amount"> </td>
                     <td> </td>
                     <td> </td>

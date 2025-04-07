@@ -1,5 +1,23 @@
+
 let expenses = []; // Array that holds expenses of users
 let totalAmount = 0;
+ window.onload = function () {
+     loadSetCookies();
+ }
+
+ //creates cookie
+ function setCookies() {
+    
+    document.cookie = `expenses=${JSON.stringify(expenses)};path/=; max-age=31536000`
+};
+
+function loadSetCookies() {
+    const cookie = document.cookie.split('; ').find(row => row.startsWith('expenses='))
+    if (cookie) {
+        expenses = JSON.parse(cookie.split('=')[1]);
+        expenses = []
+    }
+};
 
 const categorySelect = document.getElementById("category-select");
 const amountInput = document.getElementById("amount-input");
@@ -9,10 +27,13 @@ const expensesTableBody = document.getElementById("expenses-table-body");
 const totalAmountCell = document.getElementById("total-amount");
 
 addBtn.addEventListener("click", function() {
+   
     // Getting user input
     const category = categorySelect.value;
     const amount = Number(amountInput.value);//Number function converts the amount input to a number
     const date = dateInput.value;
+    //creates cookie
+    
 // Input validation
     if (category === '') {
         alert("please enter category")
@@ -59,6 +80,8 @@ addBtn.addEventListener("click", function() {
     amountCell.textContent = expense.amount;
     dateCell.textContent = expense.date;
     deleteCell.appendChild(deleteBtn);
+
+    
 });
 
 //Loop that wll be used to update expenses table and total amount on page load
@@ -86,4 +109,7 @@ for (const expense of expenses) {
     amountCell.textContent = expense.amount;
     dateCell.textContent = expense.date;
     deleteCell.appendChild(deleteBtn);
-}
+
+    setCookies();
+    loadSetCookies();
+};

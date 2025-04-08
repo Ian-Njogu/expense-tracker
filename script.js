@@ -27,7 +27,8 @@ const expensesTableBody = document.getElementById("expenses-table-body");
 const totalAmountCell = document.getElementById("total-amount");
 
 addBtn.addEventListener("click", function() {
-   
+    setCookies();
+    loadSetCookies();
     // Getting user input
     const category = categorySelect.value;
     const amount = Number(amountInput.value);//Number function converts the amount input to a number
@@ -66,6 +67,8 @@ addBtn.addEventListener("click", function() {
     deleteBtn.textContent = "delete";
     deleteBtn.classList.add("delete-btn");
     deleteBtn.addEventListener("click", function () {
+        setCookies()
+        loadSetCookies();
         expenses.splice(expenses.indexOf(expense), 1);//removes an expense from the list
 
         totalAmount -= expense.amount;//Updates the total amount
